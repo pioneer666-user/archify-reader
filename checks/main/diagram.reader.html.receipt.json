@@ -1,0 +1,308 @@
+{
+  "extension": "archify-reader/0.4",
+  "generator": "archify 2.17.0-dev.1",
+  "original": {
+    "file": "diagram.html",
+    "sha256": "9f89fee050c6a02cdad9234267bf17ae037921132b1543d33a18567dd3d7f346"
+  },
+  "manifest": {
+    "file": "reader.json",
+    "sha256": "8b2c10e7eb0aa972ce05bd95cd03f488b387040fcba5d2831f1e2ceca5a329b3"
+  },
+  "documents": [
+    {
+      "file": "campus-events\\docs\\overview.md",
+      "sha256": "b63ca6d74156f4957b7d64fd0a1fe8f417169b71dd7e15814d15987ea57d7e69"
+    }
+  ],
+  "enhanced": {
+    "file": "diagram.reader.html",
+    "sha256": "1e95726afeaa0deb955a45678b4061cbe7d8a82a2b7d9835808743b896a57ddc"
+  },
+  "checks": {
+    "uniqueNodeIds": true,
+    "targetsExist": true,
+    "sectionsExist": true,
+    "originalPreserved": true
+  },
+  "mappedNodes": 6,
+  "totalNodes": 6,
+  "warnings": [],
+  "evidenceCoverage": {
+    "scope": "configured-detail-nodes",
+    "default": "required",
+    "evidencedNodes": [
+      "submit_registration",
+      "check_eligibility",
+      "reject_registration",
+      "create_record",
+      "waitlist_entry",
+      "send_confirmation"
+    ],
+    "exemptions": [],
+    "paragraphCoverage": "not_verified",
+    "exemptionJustification": "not_verified"
+  },
+  "browserEvidence": "not_run",
+  "visualReview": "not_run",
+  "businessVerification": "not_run",
+  "nodeReferences": {
+    "mappings": [
+      {
+        "from": "submit_registration",
+        "to": "check_eligibility",
+        "relation": "next",
+        "occurrences": 1
+      },
+      {
+        "from": "check_eligibility",
+        "to": "submit_registration",
+        "relation": "input",
+        "occurrences": 1
+      },
+      {
+        "from": "check_eligibility",
+        "to": "reject_registration",
+        "relation": "next",
+        "occurrences": 1
+      },
+      {
+        "from": "check_eligibility",
+        "to": "create_record",
+        "relation": "next",
+        "occurrences": 1
+      },
+      {
+        "from": "reject_registration",
+        "to": "check_eligibility",
+        "relation": "input",
+        "occurrences": 1
+      },
+      {
+        "from": "create_record",
+        "to": "check_eligibility",
+        "relation": "input",
+        "occurrences": 1
+      },
+      {
+        "from": "create_record",
+        "to": "waitlist_entry",
+        "relation": "next",
+        "occurrences": 1
+      },
+      {
+        "from": "create_record",
+        "to": "send_confirmation",
+        "relation": "next",
+        "occurrences": 1
+      },
+      {
+        "from": "waitlist_entry",
+        "to": "create_record",
+        "relation": "input",
+        "occurrences": 1
+      },
+      {
+        "from": "waitlist_entry",
+        "to": "send_confirmation",
+        "relation": "next",
+        "occurrences": 1
+      },
+      {
+        "from": "send_confirmation",
+        "to": "create_record",
+        "relation": "input",
+        "occurrences": 1
+      }
+    ],
+    "targetsAndLabelsChecked": true,
+    "semanticVerification": "not_run"
+  },
+  "codeEvidence": {
+    "repository": "campus-events",
+    "commit": "0e604f227dea987fbf05e6c39190174b95d92ad1",
+    "files": [
+      {
+        "file": "app/main.py",
+        "blob": "c89582dd8918d8412e1995abd451761c148dc826",
+        "sha256": "8cb09f65209be8394a3dbae5020c263c188f7a4c1ae5eb63f9d66f74fdf406f1"
+      },
+      {
+        "file": "app/service.py",
+        "blob": "a2700e086364d3b28e0e221bff211ba6cb53db08",
+        "sha256": "892855be494adeb80be2c94c1b10fa0a90bc3330c2a971ce922e6950bb8443c9"
+      },
+      {
+        "file": "app/models.py",
+        "blob": "cb2cc98c9bd621b66067b1ce8265818ffe5d1098",
+        "sha256": "7dc38dc07ef461aa52c9bd0084a6b0d7aedbf2c15eb3e3934deea380832c94b5"
+      },
+      {
+        "file": "app/notify.py",
+        "blob": "f7d82fef71a948a02b124eb74732770dfb9ab25a",
+        "sha256": "0c051f8bbb018c603e07d1b666513ce2fd833b41466bb7106031fd291695c180"
+      }
+    ],
+    "mappings": [
+      {
+        "nodeId": "submit_registration",
+        "heading": "What happens here",
+        "snippets": [
+          {
+            "file": "app/main.py",
+            "startLine": 19,
+            "endLine": 29,
+            "sha256": "65523e6433e2958f2a4d7c2061bec45bbcd15c8eafc688ee2c735d09e1f03996",
+            "blob": "c89582dd8918d8412e1995abd451761c148dc826"
+          }
+        ]
+      },
+      {
+        "nodeId": "check_eligibility",
+        "heading": "The rules applied here",
+        "snippets": [
+          {
+            "file": "app/service.py",
+            "startLine": 59,
+            "endLine": 61,
+            "sha256": "8a18e513940100fc265628b41a6c10808999485c276edcc3fc2f86c83f30bb8a",
+            "blob": "a2700e086364d3b28e0e221bff211ba6cb53db08"
+          },
+          {
+            "file": "app/service.py",
+            "startLine": 67,
+            "endLine": 70,
+            "sha256": "8c4fcc3ca085fa59670cfafd32a0ee6840687f7b0413b0723e9be99827a00654",
+            "blob": "a2700e086364d3b28e0e221bff211ba6cb53db08"
+          }
+        ]
+      },
+      {
+        "nodeId": "check_eligibility",
+        "heading": "When a rule fails",
+        "snippets": [
+          {
+            "file": "app/service.py",
+            "startLine": 62,
+            "endLine": 65,
+            "sha256": "61d4ad3078d54057c21d7c9c02540e035221b469a12631dd5ca58424dce5feff",
+            "blob": "a2700e086364d3b28e0e221bff211ba6cb53db08"
+          },
+          {
+            "file": "app/service.py",
+            "startLine": 71,
+            "endLine": 72,
+            "sha256": "c96a58a725af3668bbd16cdf984b40e0eaa5b166ac1aa6be77b857873762bbb1",
+            "blob": "a2700e086364d3b28e0e221bff211ba6cb53db08"
+          }
+        ]
+      },
+      {
+        "nodeId": "reject_registration",
+        "heading": "What the student sees",
+        "snippets": [
+          {
+            "file": "app/service.py",
+            "startLine": 62,
+            "endLine": 65,
+            "sha256": "61d4ad3078d54057c21d7c9c02540e035221b469a12631dd5ca58424dce5feff",
+            "blob": "a2700e086364d3b28e0e221bff211ba6cb53db08"
+          },
+          {
+            "file": "app/main.py",
+            "startLine": 25,
+            "endLine": 26,
+            "sha256": "2ca14fadc143359f1ee37307c73e269a577c376c4bff54507bb705bcade8e19b",
+            "blob": "c89582dd8918d8412e1995abd451761c148dc826"
+          }
+        ]
+      },
+      {
+        "nodeId": "create_record",
+        "heading": "The rules applied here",
+        "snippets": [
+          {
+            "file": "app/models.py",
+            "startLine": 30,
+            "endLine": 35,
+            "sha256": "e3e5ade204ffc87d26d442299a7fe17cc1705f1536190d95ef6adddf168a913d",
+            "blob": "cb2cc98c9bd621b66067b1ce8265818ffe5d1098"
+          }
+        ]
+      },
+      {
+        "nodeId": "create_record",
+        "heading": "What happens, in order",
+        "snippets": [
+          {
+            "file": "app/service.py",
+            "startLine": 24,
+            "endLine": 42,
+            "sha256": "830fdae592702bf3d38f7c17ec6ed638057beb0dcf3339ca0bb8afb0b4e0361d",
+            "blob": "a2700e086364d3b28e0e221bff211ba6cb53db08"
+          }
+        ]
+      },
+      {
+        "nodeId": "create_record",
+        "heading": "If the save fails midway",
+        "snippets": [
+          {
+            "file": "app/service.py",
+            "startLine": 43,
+            "endLine": 45,
+            "sha256": "3be5c1b1c4cd614c6a2dbb48cce7b0a00e2337f50e447d5fce39619dfedfb034",
+            "blob": "a2700e086364d3b28e0e221bff211ba6cb53db08"
+          }
+        ]
+      },
+      {
+        "nodeId": "waitlist_entry",
+        "heading": "What happens here",
+        "snippets": [
+          {
+            "file": "app/service.py",
+            "startLine": 27,
+            "endLine": 35,
+            "sha256": "fcff050a6031e96413ca2771c221d824c61c759a652c2c9bc15c00930d054bca",
+            "blob": "a2700e086364d3b28e0e221bff211ba6cb53db08"
+          }
+        ]
+      },
+      {
+        "nodeId": "send_confirmation",
+        "heading": "What happens here",
+        "snippets": [
+          {
+            "file": "app/notify.py",
+            "startLine": 7,
+            "endLine": 18,
+            "sha256": "5f80a72c2aba2159c5a474264a539e84e3a276f702a6c6dd24cf1d8520693849",
+            "blob": "f7d82fef71a948a02b124eb74732770dfb9ab25a"
+          }
+        ]
+      },
+      {
+        "nodeId": "send_confirmation",
+        "heading": "If the message cannot be stored",
+        "snippets": [
+          {
+            "file": "app/service.py",
+            "startLine": 47,
+            "endLine": 52,
+            "sha256": "26a27af1f306b8b67493da84e6becd5b849b85f35f33bc81624b1143fc77c188",
+            "blob": "a2700e086364d3b28e0e221bff211ba6cb53db08"
+          }
+        ]
+      }
+    ],
+    "checks": {
+      "commitExists": true,
+      "regularFiles": true,
+      "rangesExist": true,
+      "sectionsPaired": true
+    },
+    "semanticVerification": "not_run",
+    "runtimeVerification": "not_run"
+  }
+}

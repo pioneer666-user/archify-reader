@@ -1,0 +1,232 @@
+{
+  "version": 1,
+  "input": "diagram.html",
+  "output": "diagram.reader.html",
+  "nodes": [
+    {
+      "id": "submit_registration",
+      "label": "Registration Form",
+      "note": "The entry point: the form hands a fresh sign-up on, and nothing is judged yet.",
+      "document": "campus-events/docs/overview.md",
+      "heading": "Registration Form",
+      "evidence": [
+        {
+          "heading": "What happens here",
+          "snippets": [
+            {
+              "file": "app/main.py",
+              "startLine": 19,
+              "endLine": 29
+            }
+          ]
+        }
+      ],
+      "references": [
+        {
+          "target": "check_eligibility",
+          "relation": "next"
+        }
+      ]
+    },
+    {
+      "id": "check_eligibility",
+      "label": "Check Eligibility",
+      "note": "Account standing and duplicate entries are checked before anything is written.",
+      "document": "campus-events/docs/overview.md",
+      "heading": "Check Eligibility",
+      "evidence": [
+        {
+          "heading": "The rules applied here",
+          "snippets": [
+            {
+              "file": "app/service.py",
+              "startLine": 59,
+              "endLine": 61
+            },
+            {
+              "file": "app/service.py",
+              "startLine": 67,
+              "endLine": 70
+            }
+          ]
+        },
+        {
+          "heading": "When a rule fails",
+          "snippets": [
+            {
+              "file": "app/service.py",
+              "startLine": 62,
+              "endLine": 65
+            },
+            {
+              "file": "app/service.py",
+              "startLine": 71,
+              "endLine": 72
+            }
+          ]
+        }
+      ],
+      "references": [
+        {
+          "target": "submit_registration",
+          "relation": "input"
+        },
+        {
+          "target": "reject_registration",
+          "relation": "next"
+        },
+        {
+          "target": "create_record",
+          "relation": "next"
+        }
+      ]
+    },
+    {
+      "id": "reject_registration",
+      "label": "Reject Entry",
+      "note": "A refused entry stops here with a student-facing reason; nothing was written.",
+      "document": "campus-events/docs/overview.md",
+      "heading": "Reject Entry",
+      "evidence": [
+        {
+          "heading": "What the student sees",
+          "snippets": [
+            {
+              "file": "app/service.py",
+              "startLine": 62,
+              "endLine": 65
+            },
+            {
+              "file": "app/main.py",
+              "startLine": 25,
+              "endLine": 26
+            }
+          ]
+        }
+      ],
+      "references": [
+        {
+          "target": "check_eligibility",
+          "relation": "input"
+        }
+      ]
+    },
+    {
+      "id": "create_record",
+      "label": "Create Registration",
+      "note": "One save marks the entry and moves the seat count together, or undoes both.",
+      "document": "campus-events/docs/overview.md",
+      "heading": "Create Registration",
+      "evidence": [
+        {
+          "heading": "The rules applied here",
+          "snippets": [
+            {
+              "file": "app/models.py",
+              "startLine": 30,
+              "endLine": 35
+            }
+          ]
+        },
+        {
+          "heading": "What happens, in order",
+          "snippets": [
+            {
+              "file": "app/service.py",
+              "startLine": 24,
+              "endLine": 42
+            }
+          ]
+        },
+        {
+          "heading": "If the save fails midway",
+          "snippets": [
+            {
+              "file": "app/service.py",
+              "startLine": 43,
+              "endLine": 45
+            }
+          ]
+        }
+      ],
+      "references": [
+        {
+          "target": "check_eligibility",
+          "relation": "input"
+        },
+        {
+          "target": "waitlist_entry",
+          "relation": "next"
+        },
+        {
+          "target": "send_confirmation",
+          "relation": "next"
+        }
+      ]
+    },
+    {
+      "id": "waitlist_entry",
+      "label": "Add to Waitlist",
+      "note": "A full event still writes the entry, as a waiting-list place without a seat.",
+      "document": "campus-events/docs/overview.md",
+      "heading": "Add to Waitlist",
+      "evidence": [
+        {
+          "heading": "What happens here",
+          "snippets": [
+            {
+              "file": "app/service.py",
+              "startLine": 27,
+              "endLine": 35
+            }
+          ]
+        }
+      ],
+      "references": [
+        {
+          "target": "create_record",
+          "relation": "input"
+        },
+        {
+          "target": "send_confirmation",
+          "relation": "next"
+        }
+      ]
+    },
+    {
+      "id": "send_confirmation",
+      "label": "Send Confirmation",
+      "note": "A matching message is stored for the student; a failed message never undoes the entry.",
+      "document": "campus-events/docs/overview.md",
+      "heading": "Send Confirmation",
+      "evidence": [
+        {
+          "heading": "What happens here",
+          "snippets": [
+            {
+              "file": "app/notify.py",
+              "startLine": 7,
+              "endLine": 18
+            }
+          ]
+        },
+        {
+          "heading": "If the message cannot be stored",
+          "snippets": [
+            {
+              "file": "app/service.py",
+              "startLine": 47,
+              "endLine": 52
+            }
+          ]
+        }
+      ],
+      "references": [
+        {
+          "target": "create_record",
+          "relation": "input"
+        }
+      ]
+    }
+  ]
+}
