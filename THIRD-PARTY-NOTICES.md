@@ -5,3 +5,5 @@
 - 校园报名源码、图规格与业务说明：来自作者为公开 Showcase 准备的虚构样例，本轮提取后重建；不是作者真实业务项目。
 
 第一方代码及虚构示例由 pioneer 以根目录 [MIT 许可证](LICENSE) 提供。第三方代码仍遵循其原有许可与署名，根目录许可证不替换第三方声明。
+
+`skill/archify-reader/` 包内随附 `LICENSE` 与 `ARCHIFY-LICENSE.txt` 的逐字副本，以及覆盖 skill 包范围的第三方声明；两处副本一致性由 `scripts/check-licenses.mjs` 校验，两份第三方声明因覆盖范围不同而分别撰写。
