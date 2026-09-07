@@ -15,6 +15,14 @@ The example is a fictional campus event registration system, written specificall
 
 Requires Node.js 22 or newer, local Git, the official Archify, and the source repository you want to analyze.
 
+Install into your tool's skill directories with the skills CLI:
+
+```text
+npx skills add https://github.com/pioneer666-user/archify-reader/tree/main/skill/archify-reader
+```
+
+If installation fails in a network environment where reaching GitHub requires a proxy: the command clones this repository with git underneath, so git itself needs working GitHub access before it can succeed.
+
 Give the full `skill/archify-reader` directory to your coding agent to read, or copy it into your tool's skill directory. Do not copy only SKILL.md. The official Archify must be set up separately; this package does not install or upgrade it.
 
 You can tell the agent directly:
@@ -61,6 +69,6 @@ Enhanced HTML embeds real source code; before sharing your own artifact, make su
 
 ## Credits and licensing
 
-Maintainer: **pioneer**. The project is released under the [MIT License](LICENSE) — use, modification, distribution, and commercial use are permitted; keep the copyright and license notices when redistributing. Third-party components keep their own notices; see [third-party sources](THIRD-PARTY-NOTICES.md).
+Maintainer: **pioneer**. The project is released under the [MIT License](LICENSE) — use, modification, distribution, and commercial use are permitted; keep the copyright and license notices when redistributing. Third-party components keep their own notices; see [third-party sources](THIRD-PARTY-NOTICES.md). The skill package carries its own verbatim copies of `LICENSE` and the upstream license, plus a package-scoped third-party notice.
 
 pioneer defined the requirements and made the final calls on the reading experience; implementation, testing, and documentation were done with AI assistance. GitHub maintainer: [pioneer666-user](https://github.com/pioneer666-user). Problems, usage feedback, and reproducible examples are welcome via this repository's Issues.

@@ -15,6 +15,14 @@
 
 需要 Node.js 22 或更新版本、本地 Git、官方 Archify，以及待分析的源码仓库。
 
+用 skills CLI 安装到你所用工具的技能目录：
+
+```text
+npx skills add https://github.com/pioneer666-user/archify-reader/tree/main/skill/archify-reader
+```
+
+若安装失败且你的网络环境访问 GitHub 需要代理：该命令底层通过 git 克隆本仓库，需要先保证 git 本身能正常访问 GitHub 再重试。
+
 把完整 `skill/archify-reader` 目录交给智能体读取，或复制到你所用工具的 skill 目录。不能只复制 SKILL.md。官方 Archify 需单独准备，本包不自动安装或升级它。
 
 可直接对智能体说：
@@ -61,6 +69,6 @@ node scripts/check-browser.cjs <上一步输出的manifest路径>
 
 ## 署名与发布
 
-维护者署名：**pioneer**。项目采用 [MIT 许可证](LICENSE)，允许使用、修改、分发及商用；分发时需保留版权及许可声明。第三方组件保留各自声明，见 [第三方来源](THIRD-PARTY-NOTICES.md)。
+维护者署名：**pioneer**。项目采用 [MIT 许可证](LICENSE)，允许使用、修改、分发及商用；分发时需保留版权及许可声明。第三方组件保留各自声明，见 [第三方来源](THIRD-PARTY-NOTICES.md)。skill 包内自带 `LICENSE` 与上游许可的逐字副本，以及覆盖包范围的第三方声明。
 
 项目由 pioneer 提出需求、裁决业务阅读体验，并在 AI 协助下实现、测试和整理文档。GitHub 维护者：[pioneer666-user](https://github.com/pioneer666-user)。欢迎通过本仓库 Issues 提交问题、使用反馈和可复现示例。
